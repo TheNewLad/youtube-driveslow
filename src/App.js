@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.min.css';
+import 'bulma-pageloader/dist/bulma-pageloader.min.css';
 import './App.css';
 import Header from './Header/Header';
-import Videos from './Videos/Videos'
+import Videos from './Videos/Videos';
+import Loader from './Loader/Loader';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      isLoaded: false,
       url: '',
       author: '',
       videos: [],
@@ -25,25 +28,31 @@ class App extends Component {
         this.setState({
           url: data.home_page_url,
           videos: data.items.slice(0, 3),
-          author: data.author.name
+          author: data.author.name,
+          isLoaded: true
         })
       })
   }
 
   render() {
-    return (
-      <div>
-        <Header author={this.state.author} />
-        <Videos videos={this.state.videos} />
-        <footer className="footer">
-          <div className="container">
-            <div className="content has-text-centered">
-              <p>Made with <span className="icon"><i class="fas fa-heart" /></span> by DevSlow.Tech</p>
+    if(!this.state.isLoaded) {
+      return <Loader />
+    } else {
+      return (
+        <div>
+          <Header author={this.state.author} />
+          <Videos videos={this.state.videos} />
+          <footer className="footer">
+            <div className="container">
+              <div className="content has-text-centered">
+                <p>Made with <span className="icon"><i class="fas fa-heart" /></span> by DevSlow.Tech</p>
+              </div>
             </div>
-          </div>
-        </footer>
-      </div>
-    )
+          </footer>
+        </div>
+      )
+    }
+    
   }
 }
 
