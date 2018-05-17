@@ -66,7 +66,7 @@ const WatchButton = (props) => {
                 <span className="icon">
                     <i className="fab fa-youtube" />
                 </span>
-                <span>Watch on YouTube</span>
+                <span>Watch</span>
             </a>
         </div>
     )
