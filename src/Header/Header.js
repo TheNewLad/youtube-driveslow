@@ -11,6 +11,18 @@ const Header = (props) => {
                     </h2>
                 </div>
             </div>
+            <div className="hero-foot hero-foot--flex">
+                <div>
+                    <span className="icon">
+                        <i className="fas fa-angle-down" />
+                    </span>
+                    Rock With the Nation!!!
+                    <span className="icon">
+                        <i className="fas fa-angle-down" />
+                    </span>
+                </div>
+                <div className="g-ytsubscribe" data-channelid="GoogleDevelopers" data-layout="default" data-count="default"></div>
+            </div>
         </section>
     )
 };

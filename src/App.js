@@ -19,12 +19,15 @@ class App extends Component {
 
 
   componentDidMount() {
+    const script = document.createElement('script');
+    script.src = 'https://apis.google.com/js/platform.js';
+    document.body.appendChild(script);
+    
     fetch('https://immense-mountain-34189.herokuapp.com/')
       .then(results => {
         return results.json();
       })
       .then(data => {
-        console.log(data.items);
         this.setState({
           url: data.home_page_url,
           videos: data.items.slice(0, 3),
@@ -45,7 +48,7 @@ class App extends Component {
           <footer className="footer">
             <div className="container">
               <div className="content has-text-centered">
-                <p>Made with <span className="icon"><i class="fas fa-heart" /></span> by DevSlow.Tech</p>
+                <p>Made with <span className="icon"><i className="fas fa-heart" /></span> by DevSlow.Tech</p>
               </div>
             </div>
           </footer>
