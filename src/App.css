@@ -4,3 +4,8 @@
 .watch-button {
   background-color: rgb(211, 0, 0);
 }
+
+.hero-foot--flex {
+  display: flex;
+  justify-content: center;
+}
