@@ -19,10 +19,6 @@ class App extends Component {
 
 
   componentDidMount() {
-    const script = document.createElement('script');
-    script.src = 'https://apis.google.com/js/platform.js';
-    document.body.appendChild(script);
-    
     fetch('https://immense-mountain-34189.herokuapp.com/')
       .then(results => {
         return results.json();
